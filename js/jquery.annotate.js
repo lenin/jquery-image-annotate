@@ -19,6 +19,7 @@
         this.editable = opts.editable;
         this.useAjax = opts.useAjax;
         this.notes = opts.notes;
+        this.opts = opts;
 
         // Add the canvas
         this.canvas = $('<div class="image-annotate-canvas"><div class="image-annotate-view"></div><div class="image-annotate-edit"><div class="image-annotate-edit-area"></div></div></div>');
@@ -57,7 +58,7 @@
 
         // Add the "Add a note" button
         if (this.editable) {
-            this.button = $('<a class="image-annotate-add" id="image-annotate-add" href="#">Add Note</a>');
+            this.button = $('<a class="image-annotate-add" id="image-annotate-add" href="#">' + opts.addNoteText + '</a>');
             this.button.click(function() {
                 $.fn.annotateImage.add(image);
             });
@@ -79,7 +80,10 @@
         deleteUrl: 'your-delete.rails',
         editable: true,
         useAjax: true,
-        notes: new Array()
+        notes: new Array(),
+        addNoteText: 'Add Note',
+        okText: 'OK',
+        cancelText: 'Cancel'
     };
 
     $.fn.annotateImage.clear = function(image) {
@@ -141,7 +145,7 @@
         ///	<summary>
         ///		Creates a Save button on the editable note.
         ///	</summary>
-        var ok = $('<a class="image-annotate-edit-ok">OK</a>');
+        var ok = $('<a class="image-annotate-edit-ok">' + image.opts.okText + '</a>');
 
         ok.click(function() {
             var form = $('#image-annotate-edit-form form');
@@ -183,7 +187,7 @@
         ///	<summary>
         ///		Creates a Cancel button on the editable note.
         ///	</summary>
-        var cancel = $('<a class="image-annotate-edit-close">Cancel</a>');
+        var cancel = $('<a class="image-annotate-edit-close">' + image.opts.cancelText + '</a>');
         cancel.click(function() {
             editable.destroy();
             image.mode = 'view';
