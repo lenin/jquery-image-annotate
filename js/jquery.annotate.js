@@ -84,6 +84,7 @@
         notes: new Array(),
         addNoteText: 'Add Note',
         okText: 'OK',
+        deleteText: 'Delete',
         cancelText: 'Cancel'
     };
 
@@ -385,7 +386,7 @@
             $.fn.annotateImage.createSaveButton(editable, this.image, annotation);
 
             // Add the delete button
-            var del = $('<a class="image-annotate-edit-delete">Delete</a>');
+            var del = $('<a class="image-annotate-edit-delete">' + this.image.opts.deleteText + '</a>');
             del.click(function() {
                 var form = $('#image-annotate-edit-form form');
 
