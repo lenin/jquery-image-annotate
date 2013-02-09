@@ -23,6 +23,7 @@
     display: block;
     margin: 0;
     position: relative;
+    clear: both;
 }
 .image-annotate-view {
     display: none;

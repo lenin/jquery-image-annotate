@@ -63,7 +63,7 @@
                 e.preventDefault();
                 $.fn.annotateImage.add(image);
             });
-            this.canvas.after(this.button);
+            this.canvas.before(this.button);
         }
 
         // Hide the original
