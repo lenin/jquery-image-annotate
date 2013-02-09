@@ -9,9 +9,8 @@
     font-size: 12px;    
     height: 18px;
     line-height: 18px;    
-    padding: 2px 0 2px 24px;
+    padding: 2px 3px 2px 24px;
     margin: 5px 0;
-    width: 64px;
     text-decoration: none;
 }
 .image-annotate-add:hover {
